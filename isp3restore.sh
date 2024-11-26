@@ -160,7 +160,8 @@ ALTER USER 'ispconfig'@'localhost' IDENTIFIED BY 'long_string_password';\n\n"
 echo -e "$message"
 
 # Wait for user to press a key
-read -n 1 -s -r -p "Press any key to continue"
+# read -n 1 -s -r -p "Press any key to continue"
+read -p "Press Enter to continue" key
 
 ########### End databases restore #############
 
