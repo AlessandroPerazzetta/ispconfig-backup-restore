@@ -1,9 +1,13 @@
 #!/bin/sh
 #
-# THIS SCRIPT HAS BEEN UPDATED BY JOHANN COSIC (www.johann-cosic.oramail.fr). PLEASE SEE
+# THIS SCRIPT HAS BEEN UPDATED BY ALESSANDRO PERAZZETTA (https://github.com/AlessandroPerazzetta/). PLEASE SEE
 # BELOW FOR ORIGINAL SCRIPT AUTHORS.
 #
 # ISPConfig3 restore script
+#
+# description: A restore script for sites and databases on ISPConfig 3 servers
+# Add this script in cron tab in order to be executed once per day.
+# /usr/bin/isp3backup.sh YYYY-MM-DD
 
 ## For log, precede with date
 dateStatement(){

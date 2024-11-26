@@ -1,23 +1,9 @@
 #!/bin/sh
 #
-# THIS SCRIPT HAS BEEN UPDATED BY JOHANN COSIC (www.johann-cosic.oramail.fr). PLEASE SEE
+# THIS SCRIPT HAS BEEN UPDATED BY ALESSANDRO PERAZZETTA (https://github.com/AlessandroPerazzetta/). PLEASE SEE
 # BELOW FOR ORIGINAL SCRIPT AUTHORS.
 #
-# ISPConfig3 back-up script based on bak-res script by go0ogl3 gabi@eurosistems.ro
-#
-# Copyright (c) Ioannis Sannos ( http://www.isopensource.com )
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with this program; if not, write to the Free Software
-#    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies of the script.
+# ISPConfig3 backup script
 #
 # description: A backup script for sites and databases on ISPConfig 3 servers
 # Add this script in cron tab in order to be executed once per day.
