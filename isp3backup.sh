@@ -184,6 +184,24 @@ done
 
 message="MySQL databases backup completed"
 echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log
+
+
+file="/usr/local/ispconfig/server/lib/config.inc.php"    
+# Search for the string $conf['db_password'] = in the file    
+result=$(grep "\$conf\['db_password'\] =" "$file")    
+# Display the search result    
+echo "Current password from $file:\n\t$result"
+
+file="/usr/local/ispconfig/interface/lib/config.inc.php"    
+# Search for the string $conf['db_password'] = in the file    
+result=$(grep "\$conf\['db_password'\] =" "$file")    
+# Display the search result    
+echo "Current password from $file:\n\t$result"
+
+# Wait for user to press a key
+# read -n 1 -s -r -p "Press any key to continue"
+read -p "Press Enter to continue" key
+
 ########### End databases backup #############
 
 ########### Start websites backup #############
