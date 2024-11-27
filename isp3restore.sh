@@ -15,7 +15,7 @@ dateStatement(){
 }
 
 ## Do not edit this section
-SCRIPTVERSION="1.5"
+SCRIPTVERSION="1.0"
 
 
 if [ -z "$1" ]; then
