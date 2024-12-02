@@ -25,6 +25,8 @@ Here are the files and directories include in the backup file:
 - Your mail directories (/var/vmail)
 - System users and groups created by ISPConfig
 - Let's Encrypt directory
+- Pure-FTPd directory
+- ispconfig core files (contains user passwords)
 
 All files are compressed in a .tar.gzip file. 
 By default, only one daily backup is keeped on server as you can send it via FTP.
@@ -37,6 +39,9 @@ Directories backed-up:
 - `LETSENCRYPTDIR="/etc/letsencrypt"`: Let's Encrypt directory
 - `HTTPDIR="/var/log/ispconfig/httpd"`: Log for ISPConfig HTTPD
 - `APACHE2DIR="/etc/apache2"`: Apache2 directory
+- `PUREFTPDDIR="/etc/pure-ftpd"`: pure-ftpd directory
+- `ISPCONFIG CORE FILES="/usr/local/ispconfig/server/scripts/ispconfig_update.sh /usr/local/ispconfig/server/lib/config.inc.php /usr/local/ispconfig/interface/lib/config.inc.php"`: ispconfig core files
+
 
 Directories used by script:
 - `BACKUPDIR="/storage/ispbackup"`: Directory where backup will be saved. **Please create it before proceed !**

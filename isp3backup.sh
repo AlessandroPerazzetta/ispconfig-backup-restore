@@ -37,7 +37,7 @@ dateStatement(){
 }
 
 ## Do not edit this section
-SCRIPTVERSION="1.7"
+SCRIPTVERSION="1.8"
 FDATE=`date +%F`		# Full Date, YYYY-MM-DD, year sorted, eg. 2009-11-21
 
 ## End of non-editable variables
@@ -334,6 +334,19 @@ echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log
 ########### End pure-ftpd backup #############
 
 
+########### Start ispconfig core backup #############
+
+message="Start ispconfig core backup"
+echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log
+
+tar -zcpf $BACKUPDIR/$FDATE/ispconfig.tar.gz /usr/local/ispconfig/server/scripts/ispconfig_update.sh /usr/local/ispconfig/server/lib/config.inc.php /usr/local/ispconfig/interface/lib/config.inc.php
+
+message="ispconfig core backup completed"
+echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log
+
+########### End ispconfig core backup #############
+
+
 ########### Start compression #############
 
 message="Start compression"
@@ -347,7 +360,7 @@ message="Compression completed"
 echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log
 ########### End compression #############
 
-########### Start ftp save #############
+######### Start ftp save #############
 if [ "$FTPBACKUP" = 1 ]; then    
   message="FTP save enabled"
   echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log

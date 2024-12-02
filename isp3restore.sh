@@ -15,7 +15,7 @@ dateStatement(){
 }
 
 ## Do not edit this section
-SCRIPTVERSION="1.1"
+SCRIPTVERSION="1.2"
 
 
 if [ -z "$1" ]; then
@@ -278,6 +278,21 @@ message="Pure-FTPd restore completed"
 echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log
 
 ########### End pure-ftpd restore #############
+
+########### Start ispconfig core restore #############
+
+message="Start ispconfig core restore"
+echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log
+
+cp /usr/local/ispconfig/server/scripts/ispconfig_update.sh /usr/local/ispconfig/server/scripts/ispconfig_update.sh.ORI_PRE_RESTORE
+cp /usr/local/ispconfig/server/lib/config.inc.php /usr/local/ispconfig/server/lib/config.inc.php.ORI_PRE_RESTORE
+cp /usr/local/ispconfig/interface/lib/config.inc.php /usr/local/ispconfig/interface/lib/config.inc.php.ORI_PRE_RESTORE
+tar -zxf $BACKUPOUTDIR/ispconfig.tar.gz -C / --overwrite
+
+message="ispconfig core restore completed"
+echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log
+
+########### End ispconfig core restore #############
 
 
 # all done
