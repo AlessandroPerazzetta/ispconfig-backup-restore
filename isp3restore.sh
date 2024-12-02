@@ -15,7 +15,7 @@ dateStatement(){
 }
 
 ## Do not edit this section
-SCRIPTVERSION="1.0"
+SCRIPTVERSION="1.1"
 
 
 if [ -z "$1" ]; then
@@ -33,6 +33,7 @@ MAILDIR="/var/vmail"					# mail directory
 LETSENCRYPTDIR="/etc/letsencrypt"   #letsencrypt directory
 HTTPDIR="/var/log/ispconfig/httpd" #httpd directory
 APACHE2DIR="/etc/apache2"  #apache dir
+PUREFTPDDIR="/etc/pure-ftpd"   #pure-ftpd directory
 
 BACKUPDIR="/storage/ispbackup"                  # backup directory
 LOGDIR="/var/log/isp3backup"   #log directory
@@ -265,6 +266,19 @@ message="LetsEncrypt restore completed"
 echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log
 
 ########### End let's encrypt restore #############
+
+########### Start pure-ftpd restore #############
+
+message="Start Pure-FTPd restore"
+echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log
+
+tar -zxf $BACKUPOUTDIR/pure-ftpd/pure-ftpd.tar.gz -C / --overwrite
+
+message="Pure-FTPd restore completed"
+echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log
+
+########### End pure-ftpd restore #############
+
 
 # all done
 

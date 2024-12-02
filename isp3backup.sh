@@ -37,7 +37,7 @@ dateStatement(){
 }
 
 ## Do not edit this section
-SCRIPTVERSION="1.6"
+SCRIPTVERSION="1.7"
 FDATE=`date +%F`		# Full Date, YYYY-MM-DD, year sorted, eg. 2009-11-21
 
 ## End of non-editable variables
@@ -48,6 +48,7 @@ MAILDIR="/var/vmail"					# mail directory
 LETSENCRYPTDIR="/etc/letsencrypt"   #letsencrypt directory
 HTTPDIR="/var/log/ispconfig/httpd" #httpd directory
 APACHE2DIR="/etc/apache2"  #apache dir
+PUREFTPDDIR="/etc/pure-ftpd"   #pure-ftpd directory
 
 BACKUPDIR="/storage/ispbackup"                  # backup directory
 LOGDIR="/var/log/isp3backup"   #log directory
@@ -125,6 +126,7 @@ mkdir -p $BACKUPDIR/$FDATE/webs/
 mkdir -p $BACKUPDIR/$FDATE/vmail/
 mkdir -p $BACKUPDIR/$FDATE/users/
 mkdir -p $BACKUPDIR/$FDATE/letsencrypt/
+mkdir -p $BACKUPDIR/$FDATE/pure-ftpd/
 
 message="Sub-directories created"
 echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log
@@ -318,6 +320,18 @@ message="LetsEncrypt backup completed"
 echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log
 
 ########### End let's encrypt backup #############
+
+########### Start pure-ftpd backup #############
+
+message="Start Pure-FTPd backup"
+echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log
+
+tar -zcpf $BACKUPDIR/$FDATE/pure-ftpd/pure-ftpd.tar.gz $PUREFTPDDIR
+
+message="Pure-FTPd backup completed"
+echo $(dateStatement) $message | tee -a $LOGDIR/$FDATE.log
+
+########### End pure-ftpd backup #############
 
 
 ########### Start compression #############
